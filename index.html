@@ -1,478 +1,725 @@
 <!DOCTYPE html>
-<html>
-  
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Abel&family=Major+Mono+Display&family=Share+Tech+Mono&display=swap");
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, nofollow" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js"></script>
+    <script src="js/collections.js"></script>
+    <script src="js/top_bar.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/collections.css">
+    <link rel="stylesheet" href="css/collections2.css">
+    <link rel="stylesheet" href="css/promotions.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/top_bar.css">
+    <title>The Craze Cave</title>
+</head>
 
-@property --rotate {
-  syntax: "<angle>";
-  initial-value: 132deg;
-  inherits: false;
-}
+<!-- ============================================ -->
+<!--                 Navigation                   -->
+<!-- ============================================ -->
 
-:root {
-  --card-height: 500px;
-  --card-width: calc(var(--card-height) / 1.5);
-}
+<header id="cs-navigation">
+    <div class="cs-container">
+        <!--Nav Logo-->
+        <!--Logo is turned white in the css with a filter on dark mode-->
+        <a href="" class="cs-logo" aria-label="back to home">
+            <img src="assets/img/Craze_Cave_Logo_720x.png" alt="logo" width="310" height="100" aria-hidden="true" decoding="async">
+        </a>
 
-body {
-  background: #000000;
-  color: #ffffff;
-  text-align: center;
-  font-family: "Major Mono Display", monospace;
-  align-items: center;
-}
+        <!--Navigation List-->
+        <nav class="cs-nav" role="navigation">
+            <!--Mobile Nav Toggle-->
+            <button class="cs-toggle" aria-label="mobile menu toggle">
+                <div class="cs-box" aria-hidden="true">
+                    <span class="cs-line cs-line1" aria-hidden="true"></span>
+                    <span class="cs-line cs-line2" aria-hidden="true"></span>
+                    <span class="cs-line cs-line3" aria-hidden="true"></span>
+                </div>
+            </button>
+            <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+            <div class="cs-ul-wrapper">
+                <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                    <li>
+                        <form id="form" role="search">
+                            <input type="text" id="search-item" name=""
+                                placeholder="Search..."
+                                aria-label="Search through site content"
+                                onkeyup="search()">
+                            <button><img class="img searchImg" src="assets/img/search-svgrepo-com.svg"></button>
+                        </form>
+                    </li>
+                    <li class="cs-li">
+                        <a href="" class="cs-li-link cs-active">
+                            Home
+                        </a>
+                    <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
+                    <li class="cs-li cs-dropdown" tabindex="0">
+                        <span class="cs-li-link">
+                            Products
+                            <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                        </span>
+                        <ul class="cs-drop-ul">
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Early Learners</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Fidget Toys</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Brain Power</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Tactile Play</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Visual Input</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Tangles</a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="" class="cs-li-link cs-drop-link">Puzzles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    </li>
+                    <li class="cs-li">
+                        <a href="" class="cs-li-link">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="" class="cs-li-link">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="cs-contact-group">
+            <div class="cs-social">
+                <a href="" class="cs-social-link">
+                    <img class="cs-social-icon" src="assets/img/person-svgrepo-com.svg" alt="logo" width="12" height="12" aria-hidden="true" decoding="async">
+                </a>
+                <a href="" class="cs-social-link">
+                    <img class="cs-social-icon" src="assets/img/shopping-cart-svgrepo-com.svg" alt="logo" width="12" height="12" aria-hidden="true" decoding="async">
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
 
-#keyboard-practice-div {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 600px;
-}
+<body>
 
-#itw-message {
-  font-family: "Abel", monospace;
-}
+    <!-- ============================================ -->
+    <!--                 Promotions                   -->
+    <!-- ============================================ -->
 
-#card-img {
-  color: #ffffff
-}
+    <section id="promotions-1567">
+        <div class="cs-container">
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <picture class="cs-background">
+                        <!--Mobile Image-->
+                        <source media="(max-width: 600px)" srcset="assets/img/childrenPlaying.jpg">
+                        <!--Tablet and above Image-->
+                        <source media="(min-width: 601px)" srcset="assets/img/childrenPlaying.jpg">
+                        <img loading="lazy" decoding="async" src="assets/img/childrenPlaying.jpg" alt="children playing" width="630" height="354">
+                    </picture>
+                    <div class="cs-content">
+                        <span class="cs-tag">New Arrivals</span>
+                        <h2 class="cs-h2">Check Out Our New Arrivals Now!</h2>
+                        <a href="" class="cs-button-solid">Shop Now</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-#card-div {
-  display: table-cell;
-  vertical-align: middle;
-}
+    <!-- ============================================ -->
+    <!--                  Collection                  -->
+    <!-- ============================================ -->
 
-#hr {
-  color: #161616;
-}
+    <!--
+        To add a 4th or 5th collection or more, copy and paste the cs-button and change it's data-filter to the next number, in this case it's 4. Do the same to the cs-listing and its data-category number. And that's it!
+    -->
 
-#speedtest-link {
-  color: #20B2AA;
-}
+    <section id="collection-1602">
+        <div class="cs-container">
+            <div class="cs-content">
+                <h2 class="cs-title">Discounted Prices</h2>
+                <div class="cs-button-group">
+                    <button onclick = "fun()" class="cs-button" data-filter="all">
+                        All
+                    </button>
+                    <button class="cs-button" data-filter="onSale">
+                        On Sale
+                    </button>
+                </div>
+            </div>
+            <div class="cs-listing-wrapper">
+                <!--Listing All-->
+                <div class="cs-listing" data-category="all" id="productList">
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/ColourPuzzleCylinder.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/ColourPuzzleCylinder.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/ColourPuzzleCylinder.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                <span class="cs-offer">-10%</span>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Rotating puzzle toy</span>
+                                <h3 class="cs-name">Colour Puzzle Cylinder</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$10.80</span>
+                                        <span class="cs-was-price">$12.00</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img class="cs-basket"
+                                                src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/retroSlinkyProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/retroSlinkyProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/retroSlinkyProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Super flexible retro magic spring</span>
+                                <h3 class="cs-name">Retro Slinky</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$3.95</span>
+                                        
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/SmooshosJumboPetsProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/SmooshosJumboPetsProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/SmooshosJumboPetsProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                <span class="cs-offer">-20%</span>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Supersized fun</span>
+                                <h3 class="cs-name">Smoosho's Jumbo Pets Squishy Ball</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$11.95</span>
+                                        <span class="cs-was-price">$14.95</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/SmooshosPetsProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/SmooshosPetsProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/SmooshosPetsProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Super soft and stretchy</span>
+                                <h3 class="cs-name">Smoosho's Pets</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$5.95</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/SquishvilleVehicleProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/SquishvilleVehicleProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/SquishvilleVehicleProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                <span class="cs-offer">-10%</span>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Super cute new addition to our Squishmallow collection</span>
+                                <h3 class="cs-name">Squishville Vehicle</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$9.95</span>
+                                        <span class="cs-was-price">$10.95</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/stretchCatProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/stretchCatProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/stretchCatProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Stretch, squeeze and pull this super cute and colourful Cat</span>
+                                <h3 class="cs-name">Stretch Cat</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$5.95</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!--Listing On Sale-->
+                <div class="cs-listing cs-hidden" data-category="onSale">
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/ColourPuzzleCylinder.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/ColourPuzzleCylinder.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/ColourPuzzleCylinder.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                <span class="cs-offer">-10%</span>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Rotating puzzle toy</span>
+                                <h3 class="cs-name">Colour Puzzle Cylinder</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$10.80</span>
+                                        <span class="cs-was-price">$12.00</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img class="cs-basket"
+                                                src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/SmooshosJumboPetsProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/SmooshosJumboPetsProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/SmooshosJumboPetsProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                <span class="cs-offer">-20%</span>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Supersized fun</span>
+                                <h3 class="cs-name">Smoosho's Jumbo Pets Squishy Ball</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$11.95</span>
+                                        <span class="cs-was-price">$14.95</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cs-item">
+                        <a href="" class="cs-link">
+                            <div class="cs-picture-group">
+                                <picture class="cs-picture">
+                                    <source media="(max-width: 600px)"
+                                            srcset="assets/productImages/SquishvilleVehicleProduct.webp">
+                                    <source media="(min-width: 601px)"
+                                            srcset="assets/productImages/SquishvilleVehicleProduct.webp">
+                                    <img loading="lazy" decoding="async"
+                                            src="assets/productImages/SquishvilleVehicleProduct.webp"
+                                            alt="gallery" width="305" height="400">
+                                </picture>
+                                <span class="cs-offer">-10%</span>
+                            </div>
+                            <div class="cs-details">
+                                <span class="cs-category">Super cute new addition to our Squishmallow collection</span>
+                                <h3 class="cs-name">Squishville Vehicle</h3>
+                                <div class="cs-actions">
+                                    <div class="cs-flex">
+                                        <span class="cs-price">$9.95</span>
+                                        <span class="cs-was-price">$10.95</span>
+                                        <div class="cs-stars">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                            <img class="cs-star"
+                                                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/review-star.svg"
+                                                    alt="star" height="24" width="24" loading="lazy" decoding="async">
+                                        </div>
+                                    </div>
+                                    <button class="cs-buy">
+                                        <img src="assets/img/add-to-cart-svgrepo-com.svg"
+                                                alt="buy" height="24" width="24" loading="lazy" decoding="async">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ============================================ -->
+    <!--                 Collection 2                 -->
+    <!-- ============================================ -->
 
-.title {
-  color: mintcream;
-  text-transform: uppercase;
-  margin-top: 3em;
-  margin-bottom: 3em;
-  font-size: 1em;
-  letter-spacing: 0.3em;
-}
+    <section id="collection-1577">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Categories</span>
+                <h2 class="cs-title">Shop By Age</h2>
+            </div>
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <a href="" class="cs-link">
+                        <span class="cs-category">Babies (1-2)</span>
+                        <picture class="cs-background" aria-hidden="true">
+                            <source media="(max-width: 600px)"
+                                    srcset="assets/categoryImages/babiesCategory.jpg">
+                            <source media="(min-width: 601px)"
+                                    srcset="assets/categoryImages/babiesCategory.jpg">
+                            <img loading="lazy" decoding="async"
+                                    src="assets/categoryImages/babiesCategory.jpg"
+                                    width="365" height="201" alt="babies playing">
+                        </picture>
+                    </a>
+                </li>
+                <li class="cs-item">
+                    <a href="" class="cs-link">
+                        <span class="cs-category">Toddlers (3-5)</span>
+                        <picture class="cs-background" aria-hidden="true">
+                            <source media="(max-width: 600px)"
+                                    srcset="assets/categoryImages/toddlersCategory.jpg">
+                            <source media="(min-width: 601px)"
+                                    srcset="assets/categoryImages/toddlersCategory.jpg">
+                            <img loading="lazy" decoding="async"
+                                    src="assets/categoryImages/toddlersCategory.jpg" width="365"
+                                    height="201" alt="toddlers playing">
+                        </picture>
+                    </a>
+                </li>
+                <li class="cs-item">
+                    <a href="" class="cs-link">
+                        <span class="cs-category">Young Children (5-10)</span>
+                        <picture class="cs-background" aria-hidden="true">
+                            <source media="(max-width: 600px)"
+                                    srcset="assets/categoryImages/youngChildrenCategory.jpg">
+                            <source media="(min-width: 601px)"
+                                    srcset="assets/categoryImages/youngChildrenCategory.jpg">
+                            <img loading="lazy" decoding="async"
+                                    src="assets/categoryImages/youngChildrenCategory.jpg"
+                                    width="365" height="201" alt="shoes">
+                        </picture>
+                    </a>
+                </li>
+                <li class="cs-item">
+                    <a href="" class="cs-link">
+                        <span class="cs-category">Kids (10+)</span>
+                        <picture class="cs-background" aria-hidden="true">
+                            <source media="(max-width: 600px)"
+                                    srcset="assets/categoryImages/kidsCategoy.jpg">
+                            <source media="(min-width: 601px)"
+                                    srcset="assets/categoryImages/kidsCategoy.jpg">
+                            <img loading="lazy" decoding="async"
+                                    src="assets/categoryImages/kidsCategoy.jpg"
+                                    width="365" height="201" alt="perfume">
+                        </picture>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>                        
+</body>
 
-.keyboard {
-  display: flex;
-  flex-direction: column;
-}
+<!-- ============================================ -->
+<!--                   Footer                     -->
+<!-- ============================================ -->
 
-.row {
-  list-style: none;
-  display: flex;
-}
+<footer id="cs-footer-269">
+    <div class="cs-container">
+        <!-- Logo Group -->
+        <div class="cs-logo-group">
+            <a aria-label="go back to home" class="cs-logo" href="">
+                <img class="cs-logo-img light" aria-hidden="true" loading="lazy" decoding="async" src="assets/img/Craze_Cave_Logo_720x.png" alt="logo" width="240" height="32">
+            </a>
+            <p class="cs-text">
+                Here at The Craze Cave we decided that there was a need for easy access to sensory, educational and all things in craze.  You will find squishies, fidgets, collectables and anything new that becomes a new craze.
+            </p>
+        </div>
+        <!-- Links -->
+        <ul class="cs-nav">
+            <li class="cs-nav-li">
+                <span class="cs-header">Sitemap</span>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="">Home</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="">Products</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="">About Us</a>
+            </li>
+            <li class="cs-nav-li">
+                <a class="cs-nav-link" href="">Contact</a>
+            </li>
+        </ul>
+        <!-- Contact Info -->
+        <ul class="cs-contact">
+            <li class="cs-nav-li">
+                <span class="cs-header">Contact</span>
+            </li>
+            <li class="cs-contact-li">
+                <a class="cs-contact-link" href="mailto:info@thecrazecave.com.au">info@thecrazecave.com.au</a>
+            </li>
+            <!-- Social Media -->
+            <li class="cs-contact-li cs-social-group">
+                <div class="cs-social">
+                    <a class="cs-social-link" aria-label="visit google profile" href="">
+                        <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/google.svg" alt="google" width="11" height="11">
+                    </a>
+                    <a class="cs-social-link" aria-label="visit facebook profile" href="">
+                        <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/Facebook.svg" alt="facebook" width="6" height="11">
+                    </a>
+                    <a class="cs-social-link" aria-label="visit instagram profile" href="">
+                        <img class="cs-social-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Social/instagram.svg" alt="instagram" width="11" height="11">
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</footer>
 
-li {
-  height: 3em;
-  width: 3em;
-  color: rgba(0, 0, 0, 0.7);
-  border-radius: 0.4em;
-  line-height: 3em;
-  letter-spacing: 1px;
-  margin: 0.4em;
-  transition: 0.3s;
-  text-align: center;
-  font-size: 1em;
-}
-
-#tab {
-  width: 5em;
-}
-
-#caps {
-  width: 6em;
-}
-
-#left-shift {
-  width: 8em;
-}
-
-#enter {
-  width: 6em;
-}
-
-#right-shift {
-  width: 8em;
-}
-
-#back {
-  width: 5em;
-}
-
-.pinky {
-  background-color: crimson;
-  border: 2px solid crimson;
-}
-.pinky.selected {
-  color: crimson;
-}
-
-.ring {
-  background-color: coral;
-  border: 2px solid coral;
-}
-.ring.selected {
-  color: coral;
-}
-
-.middle {
-  background-color: darkorange;
-  border: 2px solid darkorange;
-}
-.middle.selected {
-  color: darkorange;
-}
-
-.pointer1st {
-  background-color: gold;
-  border: 2px solid gold;
-}
-.pointer1st.selected {
-  color: gold;
-}
-
-.pointer2nd {
-  background-color: khaki;
-  border: 2px solid khaki;
-}
-.pointer2nd.selected {
-  color: khaki;
-}
-
-.fill-out-key {
-  background-color: slategrey;
-  border: 2px solid slategrey;
-}
-
-.selected {
-  background-color: transparent;
-  -webkit-animation: vibrate-1 0.3s linear infinite both;
-  animation: vibrate-1 0.3s linear infinite both;
-}
-
-/* ----------------------------------------------
- * Generated by Animista
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-.hit {
-  -webkit-animation: hit 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: hit 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-}
-
-.card {
-  background: #161616;
-  width: var(--card-width);
-  height: var(--card-height);
-  padding: 3px;
-  position: relative;
-  border-radius: 6px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  font-size: 1.5em;
-  color: rgb(88 199 250 / 0%);
-  cursor: pointer;
-  font-family: cursive;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 100px;
-}
-
-.card:hover {
-  color: rgb(88 199 250 / 100%);
-  transition: color 1s;
-}
-.card:hover:before,
-.card:hover:after {
-  animation: none;
-  opacity: 0;
-}
-
-.card::before {
-  content: "";
-  width: 104%;
-  height: 102%;
-  border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
-  position: absolute;
-  z-index: -1;
-  top: -1%;
-  left: -2%;
-  animation: spin 2.5s linear infinite;
-}
-
-.card::after {
-  position: absolute;
-  content: "";
-  top: calc(var(--card-height) / 6);
-  left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
-  opacity: 1;
-  transition: opacity 0.5s;
-  animation: spin 2.5s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    --rotate: 0deg;
-  }
-  100% {
-    --rotate: 360deg;
-  }
-}
-
-a {
-  color: #212534;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 2rem;
-}
-
-@-webkit-keyframes hit {
-  0% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@keyframes hit {
-  0% {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes vibrate-1 {
-  0% {
-    -webkit-transform: translate(0);
-    transform: translate(0);
-  }
-  20% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    -webkit-transform: translate(-2px, -2px);
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    -webkit-transform: translate(2px, 2px);
-    transform: translate(2px, 2px);
-  }
-  80% {
-    -webkit-transform: translate(2px, -2px);
-    transform: translate(2px, -2px);
-  }
-  100% {
-    -webkit-transform: translate(0);
-    transform: translate(0);
-  }
-}
-@keyframes vibrate-1 {
-  0% {
-    -webkit-transform: translate(0);
-    transform: translate(0);
-  }
-  20% {
-    -webkit-transform: translate(-2px, 2px);
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    -webkit-transform: translate(-2px, -2px);
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    -webkit-transform: translate(2px, 2px);
-    transform: translate(2px, 2px);
-  }
-  80% {
-    -webkit-transform: translate(2px, -2px);
-    transform: translate(2px, -2px);
-  }
-  100% {
-    -webkit-transform: translate(0);
-    transform: translate(0);
-  }
-}
-  </style>
-  
-  <script>
-  const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-
-const timestamps = [];
-
-timestamps.unshift(getTimestamp());
-
-function getRandomNumber(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getRandomKey() {
-  return keys[getRandomNumber(0, keys.length - 1)];
-}
-
-function targetRandomKey() {
-  const key = document.getElementById(getRandomKey());
-  key.classList.add("selected");
-  let start = Date.now();
-}
-
-function getTimestamp() {
-  return Math.floor(Date.now() / 1000);
-}
-
-document.addEventListener("keyup", (event) => {
-  const keyPressed = String.fromCharCode(event.keyCode);
-  const keyElement = document.getElementById(keyPressed);
-  const highlightedKey = document.querySelector(".selected");
-
-  keyElement.classList.add("hit");
-  keyElement.addEventListener("animationend", () => {
-    keyElement.classList.remove("hit");
-  });
-
-  if (keyPressed === highlightedKey.innerHTML) {
-    timestamps.unshift(getTimestamp());
-    const elapsedTime = timestamps[0] - timestamps[1];
-    console.log(`Character per minute ${60 / elapsedTime}`);
-    highlightedKey.classList.remove("selected");
-    targetRandomKey();
-  }
-});
-
-targetRandomKey();
-
-  </script>
-  
-  <body>
-    <h1>PERSON2099.ME</h1>
-<h2 id="itw-message">This site is in the works...</h2>
-<hr id="hr">
-<div id="iframe-div">
-
-</div>
-
-<div id="keyboard-practice-div">
-  <h1 class="title">Eyes on the screen</h1>
-  <div class="keyboard">
-    <ul class="row row-0">
-      <li class="pinky" id="esc">ESC</li>
-      <li class="pinky" id="1">1</li>
-      <li class="ring" id="2">2</li>
-      <li class="middle" id="3">3</li>
-      <li class="pointer1st" id="4">4</li>
-      <li class="pointer2nd" id="5">5</li>
-      <li class="pointer2nd" id="6">6</li>
-      <li class="pointer1st" id="7">7</li>
-      <li class="middle" id="8">8</li>
-      <li class="ring" id="9">9</li>
-      <li class="pinky" id="10">0</li>
-      <li class="pinky">-</li>
-      <li class="pinky">+</li>
-      <li class="pinky" id="back">BACK</li>
-    </ul>
-    <ul class="row row-1">
-      <li class="pinky" id="tab">TAB</li>
-      <li class="pinky" id="Q">Q</li>
-      <li class="ring" id="W">W</li>
-      <li class="middle" id="E">E</li>
-      <li class="pointer1st" id="R">R</li>
-      <li class="pointer2nd" id="T">T</li>
-      <li class="pointer2nd" id="Y">Y</li>
-      <li class="pointer1st" id="U">U</li>
-      <li class="middle" id="I">I</li>
-      <li class="ring" id="O">O</li>
-      <li class="pinky" id="P">P</li>
-      <li class="pinky">[</li>
-      <li class="pinky">]</li>
-      <li class="pinky">\</li>
-    </ul>
-    <ul class="row row-2">
-      <li class="pinky" id="caps">CAPS</li>
-      <li class="pinky" id="A">A</li>
-      <li class="ring" id="S">S</li>
-      <li class="middle" id="D">D</li>
-      <li class="pointer1st" id="F">F</li>
-      <li class="pointer2nd" id="G">G</li>
-      <li class="pointer2nd" id="H">H</li>
-      <li class="pointer1st" id="J">J</li>
-      <li class="middle" id="K">K</li>
-      <li class="ring" id="L">L</li>
-      <li class="pinky">:</li>
-      <li class="pinky">''</li>
-      <li class="pinky" id="enter">ENTER</li>
-    </ul>
-    <ul class="row row-3">
-      <li class="pinky" id="left-shift">SHIFT</li>
-      <li class="pinky" id="Z">Z</li>
-      <li class="ring" id="X">X</li>
-      <li class="middle" id="C">C</li>
-      <li class="pointer1st" id="V">V</li>
-      <li class="pointer2nd" id="B">B</li>
-      <li class="pointer2nd" id="N">N</li>
-      <li class="pointer1st" id="M">M</li>
-      <li class="middle">,</li>
-      <li class="ring">.</li>
-      <li class="pinky">;</li>
-      <li class="pinky" id="right-shift">SHIFT</li>
-    </ul>
-  </div>
-  <h1 class="title">Hands on the keyboard</h1>
-</div>
-
-<hr>
-
-<div class="card" id="card">
-  <div>
-    <a id="speedtest-link" href="https://person2099.speedtestcustom.com">
-      <div id="card-div">
-        <img id="card-img" src="https://uxwing.com/wp-content/themes/uxwing/download/17-internet-network-technology/globe-network.svg">
-        <h2>SpeedTest</h2>
-      </div>
-    </a>
-  </div>
-</div>
-  </body>
 </html>
