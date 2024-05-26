@@ -595,6 +595,7 @@
       gap: clamp(1.25rem, 2.6vw, 2.25rem);
     }
     #cs-navigation .cs-li {
+      font-family: 'Noto Sans Elymaic';
       list-style: none;
       height: 100%;
       padding: 0;

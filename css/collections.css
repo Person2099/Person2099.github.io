@@ -15,6 +15,7 @@
       gap: clamp(3rem, 6vw, 4rem);
       position: relative;
       z-index: 1;
+      font-family: "Roboto Condensed";
     }
     #collection-1602 .cs-content {
       text-align: center;
@@ -26,6 +27,7 @@
     }
     #collection-1602 .cs-title {
       margin: 0;
+      font-family: 'Rubik';
     }
     #collection-1602 .cs-button-group {
       margin: 0;

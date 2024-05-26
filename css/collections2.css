@@ -30,6 +30,7 @@
     }
     #collection-1577 .cs-title {
       margin: 0;
+      font-family: 'Rubik';
     }
     #collection-1577 .cs-topper {
       color: var(--secondary);
@@ -85,6 +86,7 @@
       transition: transform .6s, opacity .3s;
     }
     #collection-1577 .cs-category {
+      font-family: 'Reddit Mono';
       font-size: 1.25rem;
       font-weight: 700;
       line-height: 1.2em;
@@ -109,7 +111,7 @@
       width: 100%;
       height: 100%;
       backdrop-filter: blur(8px);
-      --webkit-backdrop-filter: blur(100px);
+      --webkit-backdrop-filter: blur(8px);
       background-color: rgba(255, 255, 255, 0.2);
       position: absolute;
       top: 0;
